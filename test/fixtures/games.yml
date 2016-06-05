@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  team_one: MyString
+  team_two: MyString
+  winner: MyString
+  date: 2016-06-05
+  time: 
+
+two:
+  team_one: MyString
+  team_two: MyString
+  winner: MyString
+  date: 2016-06-05
+  time: 

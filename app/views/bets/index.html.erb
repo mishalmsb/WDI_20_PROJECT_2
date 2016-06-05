@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Bets</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>User two</th>
+      <th>Value</th>
+      <th>Status</th>
+      <th>Game</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bets.each do |bet| %>
+      <tr>
+        <td><%= bet.user_id %></td>
+        <td><%= bet.user_two_id %></td>
+        <td><%= bet.value %></td>
+        <td><%= bet.status %></td>
+        <td><%= bet.game_id %></td>
+        <td><%= link_to 'Show', bet %></td>
+        <td><%= link_to 'Edit', edit_bet_path(bet) %></td>
+        <td><%= link_to 'Destroy', bet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Bet', new_bet_path %>
