@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :games
   resources :users
 
-  root 'users#show'
+  root 'users#index'
   get  'users/:id', to: "users#show"
   
   # The priority is based upon order of creation: first created -> highest priority.

@@ -15,6 +15,7 @@ class BetsController < ApplicationController
   # GET /bets/new
   def new
     @bet = Bet.new
+    @game = Game.find(params[:game])
   end
 
   # GET /bets/1/edit

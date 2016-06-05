@@ -29,7 +29,7 @@
   </div>
   <div class="field">
     <%= f.label :game_id %><br>
-    <%= f.number_field :game_id %>
+    <%= f.number_field :game_id, :value => @game.id %>
   </div>
   <div class="actions">
     <%= f.submit %>
