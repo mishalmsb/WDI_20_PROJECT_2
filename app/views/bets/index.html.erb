@@ -16,12 +16,13 @@
 
   <tbody>
     <% @bets.each do |bet| %>
+      
       <tr>
-        <td><%= bet.user_id %></td>
-        <td><%= bet.user_two_id %></td>
+        <td><%= bet.user_id %> <%= bet.user.email %> </td>
+        <td><%= bet.user_two_id %> <%= bet.user_two.email %>  </td>
         <td><%= bet.value %></td>
         <td><%= bet.status %></td>
-        <td><%= bet.game_id %></td>
+        <td><%= bet.game_id %> <%= bet.game.team_one %> VS <%= bet.game.team_two %></td>
         <td><%= link_to 'Show', bet %></td>
         <td><%= link_to 'Edit', edit_bet_path(bet) %></td>
         <td><%= link_to 'Destroy', bet, method: :delete, data: { confirm: 'Are you sure?' } %></td>

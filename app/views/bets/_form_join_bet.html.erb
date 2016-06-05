@@ -1,5 +1,3 @@
-
-
 <%= form_for(@bet) do |f| %>
   <% if @bet.errors.any? %>
     <div id="error_explanation">
@@ -12,32 +10,40 @@
       </ul>
     </div>
   <% end %>
+  <%= @better %>
 
   <% if @mybet == "team_one" %>
-    <% betted_here = current_user.id %>
-  <% elsif @mybet == "team_two" %>
-    <% actually_betted_here = current_user.id %> 
+    <div class="field">
+      <%= f.label :user_id %><br>
+      <%= f.number_field :user_id %>
+    </div>
+    <div class="field">
+      <%= f.label :user_two_id %><br>
+      <%= f.number_field :user_two_id, :value => current_user.id %>
+    </div>
+  <% else @mybet == "team_two" %>
+    <div class="field">
+      <%= f.label :user_id %><br>
+      <%= f.number_field :user_id, :value => current_user.id %>
+    </div>
+    <div class="field">
+      <%= f.label :user_two_id %><br>
+      <%= f.number_field :user_two_id %>
+    </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id, :value => betted_here %>
-  </div>
-  <div class="field">
-    <%= f.label :user_two_id %><br>
-    <%= f.number_field :user_two_id, :value => actually_betted_here %>
-  </div>
+
   <div class="field">
     <%= f.label :value %><br>
     <%= f.number_field :value %>
   </div>
   <div class="field">
     <%= f.label :status %><br>
-    <%= f.text_field :status, :value => "start" %>
+    <%= f.text_field :status, :value => "close" %>
   </div>
   <div class="field">
     <%= f.label :game_id %><br>
-    <%= f.number_field :game_id, :value => @game.id %>
+    <%= f.number_field :game_id %>
   </div>
   <div class="actions">
     <%= f.submit %>

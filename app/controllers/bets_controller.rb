@@ -16,10 +16,18 @@ class BetsController < ApplicationController
   def new
     @bet = Bet.new
     @game = Game.find(params[:game])
+    @mybet = (params[:team])
   end
 
   # GET /bets/1/edit
   def edit
+    if @bet.user_id != ""
+        @mybet = "team_one"
+    elsif @bet.user_two_id != ""
+        @mybet = "team_two"
+    end
+    # @better = @bet.user_id
+    # @mybet = "team_one"
   end
 
   # POST /bets
