@@ -2,6 +2,12 @@
 
 <h1>Listing Users</h1>
 
+<% time = Time.now %>
+<%= time.to_formatted_s(:time) %>
+<%= time.strftime("%m/%d/%Y") %>
+
+
+
 <table>
   <thead>
     <tr>
@@ -29,6 +35,9 @@
     <% end %>
   </tbody>
 </table>
+<br>
+
+
 
 <br>
 

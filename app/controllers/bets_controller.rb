@@ -1,5 +1,7 @@
 class BetsController < ApplicationController
   before_action :set_bet, only: [:show, :edit, :update, :destroy]
+  require "benchmark"
+  require 'timeout'
 
   # GET /bets
   # GET /bets.json
@@ -81,8 +83,6 @@ class BetsController < ApplicationController
       params.require(:bet).permit(:user_id, :user_two_id, :value, :status, :game_id)
     end
 
-    def in_the_future
-       @test = "test"
-    end
-    handle_asynchronously :in_the_future
+ 
+
 end
