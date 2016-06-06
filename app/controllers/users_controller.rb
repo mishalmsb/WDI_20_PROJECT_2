@@ -5,11 +5,15 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
+
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
+    #@my_bets = Bet.all
+    #@my_bets = Bet.where(user_id: current_user.id and user_two_id: current_user.id)
+    @my_bets = Bet.where("user_id = ? OR user_two_id = ?", current_user, current_user)
   end
 
   # GET /users/new

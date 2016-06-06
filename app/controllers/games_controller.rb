@@ -36,7 +36,7 @@ class GamesController < ApplicationController
   # POST /games.json
   def create
     @game = Game.new(game_params)
-
+    
     respond_to do |format|
       if @game.save
         format.html { redirect_to @game, notice: 'Game was successfully created.' }
@@ -51,11 +51,19 @@ class GamesController < ApplicationController
   # PATCH/PUT /games/1
   # PATCH/PUT /games/1.json
   def update
+
+    # if @game.winner != ""
+      
+    #   # <%= bet.game_id %> <%= bet.game.team_one %> VS <%= bet.game.team_two %></td>
+    #   @bet = Bet.find(@game.id)
+    #   puts "HELLOOOLLOLOhlooooHELLOOOLLOLOhlooooHELLOOOLLOLOhloooo#{@bet.game.id}"
+    #   t.string   "status"
+    #   t.integer  "game_id"
+    # end
+    
     respond_to do |format|
       if @game.update(game_params)
-        if @game.winner != ""
-            update_everything
-        end
+ 
         format.html { redirect_to @game, notice: 'Game was successfully updated.' }
         format.json { render :show, status: :ok, location: @game }
       else
