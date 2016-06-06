@@ -21,9 +21,9 @@ class BetsController < ApplicationController
 
   # GET /bets/1/edit
   def edit
-    if @bet.user_id != ""
+    if @bet.user_id != nil
         @mybet = "team_one"
-    elsif @bet.user_two_id != ""
+    elsif @bet.user_two_id != nil
         @mybet = "team_two"
     end
     # @better = @bet.user_id
@@ -80,4 +80,9 @@ class BetsController < ApplicationController
     def bet_params
       params.require(:bet).permit(:user_id, :user_two_id, :value, :status, :game_id)
     end
+
+    def in_the_future
+       @test = "test"
+    end
+    handle_asynchronously :in_the_future
 end

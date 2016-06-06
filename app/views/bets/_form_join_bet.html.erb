@@ -1,3 +1,5 @@
+<%= @test %> 
+
 <%= form_for(@bet) do |f| %>
   <% if @bet.errors.any? %>
     <div id="error_explanation">
@@ -21,7 +23,8 @@
       <%= f.label :user_two_id %><br>
       <%= f.number_field :user_two_id, :value => current_user.id %>
     </div>
-  <% else @mybet == "team_two" %>
+  <% end %>
+  <% if @mybet == "team_two" %>
     <div class="field">
       <%= f.label :user_id %><br>
       <%= f.number_field :user_id, :value => current_user.id %>
