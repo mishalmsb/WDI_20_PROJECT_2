@@ -33,11 +33,16 @@
     </div>
   <% end %>
 
-
   <div class="field">
     <%= f.label :value %><br>
-    <%= f.number_field :value %>
+    <%= f.number_field :value, :value => @bet.value + @bet.value %>
   </div>
+
+  <div class="field">
+    <label> Value </label><br>
+    <input type="text" value="<%= @bet.value %>">
+  </div>
+
   <div class="field">
     <%= f.label :status %><br>
     <%= f.text_field :status, :value => "close" %>

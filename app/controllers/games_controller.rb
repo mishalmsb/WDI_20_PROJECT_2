@@ -11,15 +11,12 @@ class GamesController < ApplicationController
     @upcoming_games = Game.where("date >= ? OR finish_time >= ?", "#{@date}","#{@time}")
     @todays_games = Game.where("date = ? OR finish_time > ?", "#{@date}","#{@time}")
     @finished_games = Game.where("date <= ? AND finish_time < ?", "#{@date}","#{@time}")
-
-    
   end
 
   # GET /games/1
   # GET /games/1.json
   def show
 
-     
     # @upcoming_games = Game.where(returned_date: nil)
   end
 
@@ -30,6 +27,7 @@ class GamesController < ApplicationController
 
   # GET /games/1/edit
   def edit
+
   end
 
   # POST /games
@@ -52,18 +50,14 @@ class GamesController < ApplicationController
   # PATCH/PUT /games/1.json
   def update
 
-    # if @game.winner != ""
-      
-    #   # <%= bet.game_id %> <%= bet.game.team_one %> VS <%= bet.game.team_two %></td>
-    #   @bet = Bet.find(@game.id)
-    #   puts "HELLOOOLLOLOhlooooHELLOOOLLOLOhlooooHELLOOOLLOLOhloooo#{@bet.game.id}"
-    #   t.string   "status"
-    #   t.integer  "game_id"
-    # end
+
     
     respond_to do |format|
       if @game.update(game_params)
- 
+        if @game.winner != "" || @game.winner != nil
+            update_everything(@game.id)
+        end
+        
         format.html { redirect_to @game, notice: 'Game was successfully updated.' }
         format.json { render :show, status: :ok, location: @game }
       else
@@ -94,13 +88,32 @@ class GamesController < ApplicationController
       params.require(:game).permit(:team_one, :team_two, :winner, :date, :time, :finish_time)
     end
 
-    def update_everything
-      if @game.winner == @game.team_one
-          
-      end
-      if @game.winner == @game.team_two
-          
-      end
+    def update_everything(gameid)
+
+      
+      @this_game_bets = Bet.where("game_id = ?", gameid)
+      @this_game_bets.each do |bet|
+          bet.update_attribute(:status, "finished")
+          if @game.winner == "1"
+            credit_user(bet.user.email, bet.value)
+          end
+          if @game.winner == "2"
+            credit_user(bet.user_two.email, bet.value)
+          end
+      end  
+
+    end
+
+    def update_bet
+      
+    end
+
+    def credit_user(user_email, add_money)
+        user = User.find_by_email(user_email)
+        user_new_money = user.money + add_money
+        user.update_attribute(:money, user_new_money)
+
+        #puts "*****************************************************************#{user_new_money}"
     end
 
 end

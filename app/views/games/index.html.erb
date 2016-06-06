@@ -141,6 +141,7 @@
         <td><%= link_to "bet on "+game.team_one, {:controller => "bets", :action => "new", :game => game.id, :team => "team_one"}%></td>
         <td><%= link_to "bet on "+game.team_two, {:controller => "bets", :action => "new", :game => game.id, :team => "team_two" }%></td>
         <td><%= link_to 'Join Bet', edit_game_path(game) %></td>
+        
       </tr>
     <% end %>
   </tbody>

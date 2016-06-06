@@ -1,24 +1,5 @@
 <h1>Listing Users</h1>
 
-<!-- For ease i'm just using a JQuery version hosted by JQuery- you can download any version and link to it locally -->
-<script src="http://code.jquery.com/jquery-latest.js"></script>
- 
-<script>
-  var refreshId = setInterval(function()
-  {
-       $('#responsecontainer').fadeOut("slow").load('response.php').fadeIn("slow");
-
-  }, 100);
-</script>
-</head>
-<body>
- 
-<div id="responsecontainer">
-  <% time = Time.now %>
-  <%= Time.now.strftime("%H:%M:%S") %>
-  <%= time.strftime("%m/%d/%Y") %>
-</div>
-
 <table>
   <thead>
     <tr>
