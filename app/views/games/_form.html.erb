@@ -1,3 +1,5 @@
+<%= @game.winner %>
+
 <%= form_for(@game) do |f| %>
   <% if @game.errors.any? %>
     <div id="error_explanation">
@@ -28,8 +30,8 @@
     <%= f.date_select :date %>
   </div>
   <div class="field">
-    <%= f.label :time %><br>
-    <%= f.text_field :time %>
+    <%= f.label :finish_time %><br>
+    <%= f.number_field :finish_time %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -5,11 +5,22 @@ class GamesController < ApplicationController
   # GET /games.json
   def index
     @games = Game.all
+    @date = Time.now.strftime("%Y/%d/%m")
+    @time = Time.now.strftime("%H%M").to_i
+    
+    @upcoming_games = Game.where("date >= ? OR finish_time >= ?", "#{@date}","#{@time}")
+    @todays_games = Game.where("date = ? OR finish_time > ?", "#{@date}","#{@time}")
+    @finished_games = Game.where("date <= ? AND finish_time < ?", "#{@date}","#{@time}")
+
+    
   end
 
   # GET /games/1
   # GET /games/1.json
   def show
+
+     
+    # @upcoming_games = Game.where(returned_date: nil)
   end
 
   # GET /games/new
@@ -69,6 +80,6 @@ class GamesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def game_params
-      params.require(:game).permit(:team_one, :team_two, :winner, :date, :time)
+      params.require(:game).permit(:team_one, :team_two, :winner, :date, :time, :finish_time)
     end
 end
