@@ -53,6 +53,9 @@ class GamesController < ApplicationController
   def update
     respond_to do |format|
       if @game.update(game_params)
+        if @game.winner != ""
+            update_everything
+        end
         format.html { redirect_to @game, notice: 'Game was successfully updated.' }
         format.json { render :show, status: :ok, location: @game }
       else
@@ -82,4 +85,14 @@ class GamesController < ApplicationController
     def game_params
       params.require(:game).permit(:team_one, :team_two, :winner, :date, :time, :finish_time)
     end
+
+    def update_everything
+      if @game.winner == @game.team_one
+          
+      end
+      if @game.winner == @game.team_two
+          
+      end
+    end
+
 end

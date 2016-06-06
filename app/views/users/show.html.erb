@@ -27,7 +27,7 @@
 
 <p>
   <strong>Picture:</strong>
-  <%= image_tag user.graffiti_image.thumb.url %>
+  <%= image_tag @user.graffiti_image.url %>
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
