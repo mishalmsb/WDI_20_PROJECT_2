@@ -23,6 +23,8 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    
+    # current_user.update_attribute(:admin, true)
   end
 
   # POST /users
