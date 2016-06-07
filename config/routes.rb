@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'statics/homepage'
+
   devise_for :users
   resources :bets
   resources :games
