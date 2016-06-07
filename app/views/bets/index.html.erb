@@ -19,7 +19,7 @@
 
         <tr>
           <% if bet.user_id != nil %>
-            <td><%= bet.user_id %> <%= bet.user.email %> </td>
+            <td> <%= bet.user.email %> </td>
           <% end %>
           <% if bet.user_two_id != nil %>
             <td><%= bet.user_two_id %> <%= bet.user_two.email %>  </td>
@@ -36,7 +36,7 @@
             <% end %>
           <% end %>
 
-          <td><%= link_to 'Show', bet %></td>
+          
         </tr>
       <% end %>
     </tbody>
@@ -44,7 +44,7 @@
 
   <br>
 
-  <%= link_to 'New Bet', new_bet_path %>
+  
 
 </div>
 

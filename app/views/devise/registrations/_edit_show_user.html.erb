@@ -8,35 +8,39 @@
       <%= f.text_field :name%>
     </div>
   
-  <br><br>
+  <br>
+    <div class="allLabels">
+      <%= image_tag @user.graffiti_image.url %>
+    </div>
+    <label class="allLabels"> Double Click to change Image </label>
+    <div class="field divs" style="display: none">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true %>
+    </div>
+  <br>
 
-  <label class="allLabels">Top Up Your Account</label><br>
   <div class="field allLabels">
-      You have: <%= current_user.money %> tokens
+      You have: <%= current_user.money %> tokens left
   </div>
   
   <label class="allLabels"> <%= current_user.nationality %> </label>
   <div class="field divs" style="display: none">
-      <%= f.label :nationality %><br>
+      <%= f.label :nationality %>
       <%= f.text_field :nationality %>
   </div>
-
+  <br>
   <label class="allLabels"> <%= current_user.name %> </label>
   <div class="field divs" style="display: none">
     <%= f.label :notes %><br>
     <%= f.text_field :notes %>
   </div>
-
+  <br>
   <div class="field divs" style="display: none">
     <%= f.label :graffiti_image %><br>
     <%= f.file_field :graffiti_image %>
   </div>
   
-  <label class="allLabels"> Double Click to change Image </label>
-  <div class="field divs" style="display: none">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>

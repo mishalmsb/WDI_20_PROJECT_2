@@ -1,4 +1,3 @@
-
 <div id="my_games">
   <h3>My Games</h3>
     <table>
@@ -19,10 +18,10 @@
 
         <tr>
           <% if bet.user_id != nil %>
-            <td><%= bet.user_id %> <%= bet.user.email %> </td>
+            <td> <%= bet.user.name %> </td>
           <% end %>
           <% if bet.user_two_id != nil %>
-            <td><%= bet.user_two_id %> <%= bet.user_two.email %>  </td>
+            <td> <%= bet.user_two.name %>  </td>
           <% end %>
           <td><%= bet.value %></td>
           <td><%= bet.status %></td>
@@ -44,8 +43,6 @@
                 <td><%= link_to 'Claim', bet %></td>
             <% end %>
           <% end %>
-          
-          <td><%= link_to 'Show', bet %></td>
           
         </tr>
         

@@ -1,11 +1,16 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<!-- <h2>Edit <%= resource_name.to_s.humanize %></h2> -->
+<h2> <%= current_user.name %> </h2>
 
-<div class="allLabels">
-  <%= image_tag @user.graffiti_image.url %>
+
+  <%= render 'user_games' %>
+<div>
+  <%= render 'edit_show_user' %>
 </div>
 
-<%= render 'user_games' %>
+<div>
+  
+</div>
 
-<%= render 'edit_show_user' %>
 
-<%= link_to "Back", :back %>
+
+
