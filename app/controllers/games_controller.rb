@@ -6,12 +6,14 @@ class GamesController < ApplicationController
   def index
     @bets = Bet.all
     @games = Game.all
-    @date = Time.now.strftime("%Y-%m-%d")
-    @time = Time.now.strftime("%H%M").to_i
     @users = User.all
-    @upcoming_games = Game.where("date >= ? AND finish_time >= ?", "#{@date}","#{@time}")
-    @todays_games = Game.where("date = ? AND finish_time > ?", "#{@date}","#{@time}")
+    # @date = Time.now.strftime("%Y-%m-%d")
+    # @time = Time.now.strftime("%H%M").to_i
+    
+    # @upcoming_games = Game.where("date >= ? AND finish_time >= ?", "#{@date}","#{@time}")
+    # @todays_games = Game.where("date = ? AND finish_time > ?", "#{@date}","#{@time}")
     # @finished_game = Game.where("date < ? AND finish_time < ?", "#{@date}","#{@time}")
+    @games_to_bet = Game.where("winner = ?", "#{""}")
   end
 
   # GET /games/1
