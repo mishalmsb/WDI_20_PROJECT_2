@@ -1,42 +1,36 @@
-<% if @games.size > 0 %>
+<td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
 
-    <table>
-      <thead> 
+<% if @games.size > 0 %>
+  <div class="container">
+
+    <table class="table table-hover">
+      <thead>
         <tr>
-          <th>Team one</th>
-          <th>Team two</th>
+          <th>Game</th>
           <th>Winner</th>
-          <th>Date</th>
-          <th>Time</th>
-          <th colspan="3"></th>
+          <th>Finish Time</th>
         </tr>
       </thead>
-      
+
       <tbody>
         <% @games.each do |game| %>
           <tr>
-
-            <td><%= game.team_one %></td>
-            <td><%= game.team_two %></td>
-            <td><%= game.winner %></td>
-            <td><%= game.date %></td>
-            <td><%= game.finish_time %></td>
-            
-
-            <td><%= link_to 'Show', game %></td>
-            <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td> 
+                <td><%= link_to game.team_one + ' vs ' + game.team_two, game_path(game) %></td>
+            </td>
+            <% if game.winner == "1" %>
+              <td> <%= game.team_one %></td>
+            <% elsif game.winner == "2" %>
+              <td> <%= game.team_two %></td>
+            <% else %>
+              <td> Unfinished </td>
+            <% end %>
+            <td><%= game.date %>  <%= game.finish_time %></td>
           </tr>
-          <tr>
-            <td><%= link_to "bet on "+game.team_one, {:controller => "bets", :action => "new", :game => game.id, :team => "team_one"}%></td>
-            <td><%= link_to "bet on "+game.team_two, {:controller => "bets", :action => "new", :game => game.id, :team => "team_two" }%></td>
-            <td><%= link_to 'Join Bet', edit_game_path(game) %></td>
-  
-          </tr>
-          <br>
-          <%= render :partial => 'bets/bets_per_game', :locals => {:game => game.id} %>
         <% end %>
       </tbody>
     </table>
-<% else %>
-  <h3>Sorry No Games</h3>
-<% end %>
+  </div>
+  <% else %>
+    <%= render 'no_games' %>
+  <% end %>

@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'statics/about'
-  get 'statics/contact'
   get 'statics/homepage'
 
   devise_for :users
@@ -9,8 +7,13 @@ Rails.application.routes.draw do
   resources :users
 
   root 'statics#homepage'
-  get  'users/:id', to: "users#show"
-  
+  get  'users/:id',         to: "users#show"
+  get 'statics/about',      to: "statics#about"
+  get 'statics/contact',    to: "statics#contact"
+  get 'statics/myproject',  to: "statics#myproject"
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
