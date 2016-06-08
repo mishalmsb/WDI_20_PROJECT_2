@@ -21,7 +21,9 @@
               <td><%= game.date %>  <%= game.finish_time %></td>
      
             </tr>
-     
+              <tr>
+                <%= render :partial => 'bets/bets_per_game', :locals => {:game => game.id} %>
+              </tr>
         </tbody>
       </table>
     <% end %>
@@ -29,9 +31,9 @@
 <% else %>
   <%= render 'no_games' %>
 
-  <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <td> <%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   
-  <%= render :partial => 'bets/bets_per_game', :locals => {:game => game.id} %>
+  
 
 <% end %>
 

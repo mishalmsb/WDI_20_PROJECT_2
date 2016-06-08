@@ -4,15 +4,22 @@
   <div class="panel panel-default">
     <div class="panel-heading"><%= @bet.game.team_one %> - <%= @bet.game.team_two %></div>
     <div class="panel-body">
-        <p>
-          <strong>Better One:</strong>
-          <%= @bet.user.name %>
-        </p>
+        
+        <% if @bet.user != nil %>
+          <p>
+            <strong>Better One:</strong>
+            <%= @bet.user.name %>
+          </p>
+        <% end %>
+        
 
-        <p>
-          <strong>Better Two:</strong>
-          <%= @bet.user_two.name %>
-        </p>
+        <% if @bet.user_two != nil %>
+          <p>
+            <strong>Better Two:</strong>
+            <%= @bet.user_two.name %>
+          </p>
+        <% end %>
+        
 
         <p>
           <strong>Bet on this game:</strong>
