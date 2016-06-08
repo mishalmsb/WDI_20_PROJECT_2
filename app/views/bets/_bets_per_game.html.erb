@@ -17,10 +17,13 @@
     <% @bets.each do |bet| %>
       <tr>
         <% if bet.user_id != nil %>
-          <td> <%= bet.user.name %> </td>
+          <td> 
+            <%= link_to bet.user.name, bet.user %>
+             
+          </td>
         <% end %>
         <% if bet.user_two_id != nil %>
-          <td><%= bet.user_two.name %>  </td>
+          <td> <%= link_to bet.user_two.name, bet.user_two %>  </td>
         <% end %>
         <td><%= bet.value %></td>
         

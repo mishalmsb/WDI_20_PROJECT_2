@@ -1,22 +1,28 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <p id="notice"><%= notice %></p>
 
-<h1>Todays Games</h1>
+  <h1>Todays Games</h1>
 
-<%= render 'todays_games' %>
+  <%= render 'todays_games' %>
 
-<h1>Upcoming games</h1>
+  <h1>Upcoming games</h1>
 
-<%= render 'ucoming_games' %>
+  <%= render 'ucoming_games' %>
 
+  <h1>All Games</h1>
 
-<h1>All Games</h1>
+  <%= render 'all_games' %>
 
-<%= render 'all_games' %>
+  <h1>All Betters</h1>
 
-<br>
+  <%= render 'all_users' %>
 
-<br>
+  <br>
 
-<div style="display: <%= is_admin ? "block" : "none"; %>">
-  <%= link_to 'New Game', new_game_path %>
+  <br>
+
+  <div style="display: <%= is_admin ? "block" : "none"; %>">
+    <%= link_to 'New Game', new_game_path %>
+  </div>
 </div>
+

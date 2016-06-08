@@ -16,3 +16,12 @@
 //= require bootstrap/dist/js/bootstrap.js
 //= require_tree .
 
+$(function() {
+  console.log("hello")
+
+  $('.carousel').carousel({
+    interval: 5000 //changes the speed
+  })
+
+  
+})

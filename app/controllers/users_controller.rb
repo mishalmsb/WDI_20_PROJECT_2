@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     #@my_bets = Bet.all
     #@my_bets = Bet.where(user_id: current_user.id and user_two_id: current_user.id)
     
-    
+    @bets = Bet.all
     @my_bets = Bet.where("user_id = ? OR user_two_id = ?", current_user, current_user)
   end
 

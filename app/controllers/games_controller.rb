@@ -8,7 +8,7 @@ class GamesController < ApplicationController
     @games = Game.all
     @date = Time.now.strftime("%Y-%m-%d")
     @time = Time.now.strftime("%H%M").to_i
-    
+    @users = User.all
     @upcoming_games = Game.where("date >= ? AND finish_time >= ?", "#{@date}","#{@time}")
     @todays_games = Game.where("date = ? AND finish_time > ?", "#{@date}","#{@time}")
     # @finished_game = Game.where("date < ? AND finish_time < ?", "#{@date}","#{@time}")
@@ -113,7 +113,7 @@ class GamesController < ApplicationController
         @winner_user = User.find_by_email(user_email)
         user_new_money = @winner_user.money + add_money
         user.update_attribute(:money, user_new_money)
-        UserNotifier.inform_bet_winner_email(@winner_user).deliver
+        
         #puts "*****************************************************************#{user_new_money}"
     end
 

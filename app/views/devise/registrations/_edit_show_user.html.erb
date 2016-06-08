@@ -1,75 +1,96 @@
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+<div class="container" id="profile">
 
-  <label class="allLabels" ondblclick="hideLabels('allLabels','divName')"> <%= f.label :name %> </label><br>
-  <label class="allLabels" ondblclick="hideLabels('allLabels','divName')"> <%= current_user.name %> </label>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= devise_error_messages! %>
 
-    <div class="field divs" id="divName" style="display: none">
-      <%= f.text_field :name%>
-    </div>
-  
-  <br>
-    <div class="allLabels">
-      <%= image_tag @user.graffiti_image.url %>
-    </div>
-    <label class="allLabels"> Double Click to change Image </label>
-    <div class="field divs" style="display: none">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true %>
-    </div>
-  <br>
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <% end %>
 
-  <div class="field allLabels">
-      You have: <%= current_user.money %> tokens left
-  </div>
-  
-  <label class="allLabels"> <%= current_user.nationality %> </label>
-  <div class="field divs" style="display: none">
-      <%= f.label :nationality %>
-      <%= f.text_field :nationality %>
-  </div>
-  <br>
-  <label class="allLabels"> <%= current_user.name %> </label>
-  <div class="field divs" style="display: none">
-    <%= f.label :notes %><br>
-    <%= f.text_field :notes %>
-  </div>
-  <br>
-  <div class="field divs" style="display: none">
-    <%= f.label :graffiti_image %><br>
-    <%= f.file_field :graffiti_image %>
-  </div>
-  
+    <div class="row">
+        <div class="col-sm-6 col-md-6">
+            <img src="<%= @user.graffiti_image.url %>"
+            alt="" class="img-rounded img-responsive" />
+        </div>
+        <div class="col-sm-4 col-md-4">
+            <blockquote>
+                <p><h3> <%= current_user.name.capitalize %> </h3></p> <small><cite title="Source Title"><%= current_user.nationality.capitalize %> <i class="glyphicon glyphicon-map-marker"></i></cite></small>
+            </blockquote>
+
+                <p> 
+                  <i class="glyphicon glyphicon-envelope"></i> <%= current_user.email %>
+                <br /> 
+                  
+                <label class="allLabels" ondblclick="hideLabels('allLabels','divName')"> <%= f.label :name %>: </label>
+                <label class="allLabels" ondblclick="hideLabels('allLabels','divName')"> <%= current_user.name %> </label>
+                <div class="field divs" id="divName" style="display: none">
+                  <%= f.text_field :name%>
+                </div>
+                
+
+                <label class="allLabels" ondblclick="hideLabels('allLabels','divNationality')"> Nationality: <%= current_user.nationality %> </label>
+                <div class="field divs" id="divNationality" style="display: none">
+                    <%= f.label :nationality %>
+                    <%= f.text_field :nationality %>
+                </div>
+                <br>
+                <label class="allLabels" ondblclick="hideLabels('allLabels','divNotes')"> Notes: <%= current_user.notes %> </label>
+                <div class="field divs" id="divNotes" style="display: none">
+                  <%= f.label :notes %><br>
+                  <%= f.text_field :notes %>
+                </div>
+                <br>
+
+                <div class="field allLabels">
+                    You have: <%= current_user.money %> tokens left
+                </div>
+
+                
+                <!-- <br /> <i class="glyphicon glyphicon-gift"></i> January 30, 1974</p> -->
+
+                <div class="field" id="divPassword" style="display: none">
+                  <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+                  <%= f.password_field :current_password, autocomplete: "off" %>
+                </div>
+
+                <div class="field divs" style="display: none">
+                  <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+                  <%= f.password_field :password, autocomplete: "off" %>
+                </div>
+
+                <div class="field divs" style="display: none">
+                  <%= f.label :password_confirmation %><br />
+                  <%= f.password_field :password_confirmation, autocomplete: "off" %>
+                </div>
+
+                <div class="actions" id="actions" style="display: none">
+                  <%= f.submit "Update" %>
+                  
+                </div>
+
+                <div class="field divs"  id="divImage" style="display: none">
+                  <%= f.label :graffiti_image %><br>
+                  <%= f.file_field :graffiti_image %>
+                </div>
 
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+                <br><br><br>
+                
 
+                </p>
+                <br><br>
 
-  <div class="field divs" style="display: none">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+                <p class="allLabels"> 
+                    Double click if you wont to change any detail
+                </p>
+        </div>
+        
+      </div>
+    <% end %>  
+</div>
 
-  <div class="field divs" style="display: none">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+    
 
-  <div class="field" id="divPassword" style="display: none">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
-
-  <div class="actions" id="actions" style="display: none">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-  
-  <div class="allLabels">
-      <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
-  </div>
 
 <script type="text/javascript">
 

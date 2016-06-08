@@ -1,0 +1,46 @@
+<div class="container">
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Users</th> 
+        <th>Bet</th>
+        <th>Teams Playing</th>
+        <th>Game Status</th>
+        <th>Options</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @bets.each do |bet| %>
+        <tr>
+          <td>
+            <% if bet.user_id != nil %>
+              <%= bet.user.name %>
+            <% else %>
+              ?
+            <% end %>
+            <br> vs
+            <% if bet.user_two_id != nil %>
+              <%= bet.user_two.name %> 
+            <% else %>
+              ? 
+            <% end %>
+          </td>
+          <td><%= bet.value %></td>
+          
+          <td><%= bet.game.team_one %> VS <%= bet.game.team_two %></td>
+          <td><%= bet.status %></td>
+
+          <% if bet.status == "start" %>
+            <% if bet.user_id == current_user.id || bet.user_two_id == current_user.id %>
+              <td><%= link_to 'Cancel Game', bet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% else %>
+              <td><%= link_to 'Bet', edit_bet_path(bet) %></td>
+            <% end %>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

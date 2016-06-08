@@ -1,0 +1,19 @@
+<div id="all_users">
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= link_to user.name, user %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+</div>

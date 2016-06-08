@@ -7,6 +7,7 @@ class BetsController < ApplicationController
   # GET /bets.json
   def index
     @bets = Bet.all
+    # UserNotifier.inform_bet_winner_email(current_user).deliver
   end
 
   # GET /bets/1
@@ -36,8 +37,6 @@ class BetsController < ApplicationController
   # POST /bets.json
   def create
     @bet = Bet.new(bet_params)
-    UserNotifier.inform_bet_winner_email(current_user).deliver
-    puts "aaBFVSFhagdlGSDABCSBcjsbcSCBgvkHASGDXASDGNHSGDks#{current_user.email}"
     # puts "IULIUYBIPHIHILUHPIUHPIHPIHPI #{bet_amount}"
     # puts "HUHDOUHUYGUYGBUGBKVYIUUGU#{current_user.money}"
     user_new_money = current_user.money - bet_params[:value].to_i

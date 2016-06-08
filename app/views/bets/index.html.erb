@@ -1,48 +1,28 @@
-<div>
-  <p id="notice"><%= notice %></p>
-  <h1>Listing Bets</h1>
+<div class="container">
 
-  <table>
-    <thead>
-      <tr>
-        <th>User</th> 
-        <th>User two</th>
-        <th>Bet</th>
-        <th>Teams Playing</th>
-        <th> Game Status</th>
-        <th colspan="1"></th>
-      </tr>
-    </thead>
+<p id="notice"><%= notice %></p>
 
-    <tbody>
-      <% @bets.each do |bet| %>
+  <h2>Bets</h2>
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#home">My Bets</a></li>
+    <li><a data-toggle="tab" href="#menu1">All Bets</a></li>
+  </ul>
 
-        <tr>
-          <% if bet.user_id != nil %>
-            <td> <%= bet.user.name %> </td>
-          <% end %>
-          <% if bet.user_two_id != nil %>
-            <td><%= bet.user_two.name %>  </td>
-          <% end %>
-          <td><%= bet.value %></td>
-          
-          <td><%= bet.game.team_one %> VS <%= bet.game.team_two %></td>
-          <td><%= bet.status %></td>
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+      <h3>My Bets</h3>
 
-          <% if bet.status == "start" %>
-            <% if bet.user_id == current_user.id || bet.user_two_id == current_user.id %>
-              <td><%= link_to 'Destroy', bet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-            <% else %>
-              <td><%= link_to 'Bet', edit_bet_path(bet) %></td>
-            <% end %>
-          <% end %>
-          
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+        <%= render 'my_bets' %>
 
-  <br>
+    </div>
+    <div id="menu1" class="tab-pane fade">
+      <h3>All Bets</h3>
+      
+        <%= render 'all_bets' %>
+    </div>
 
+  </div>
 </div>
+
+
 
