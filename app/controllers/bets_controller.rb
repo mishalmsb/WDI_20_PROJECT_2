@@ -24,6 +24,7 @@ class BetsController < ApplicationController
 
   # GET /bets/1/edit
   def edit
+
     if @bet.user_id != nil
         @mybet = "team_one"
     elsif @bet.user_two_id != nil
@@ -56,6 +57,9 @@ class BetsController < ApplicationController
   # PATCH/PUT /bets/1
   # PATCH/PUT /bets/1.json
   def update
+    user_new_money = current_user.money - (bet_params[:value].to_i/2)
+    current_user.update_attribute(:money, user_new_money)
+
     respond_to do |format|
       if @bet.update(bet_params)
         # User.find(current_user.id).user.update_attributes(:money => 90)

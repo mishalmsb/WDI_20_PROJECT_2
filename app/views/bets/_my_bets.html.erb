@@ -8,16 +8,18 @@
     </thead>
 
     <tbody>
-      <% @bets.where(:user_id => current_user.id).each do |bet| %>
-        <tr>
-          <td><%= link_to bet.game.team_one + ' vs ' + bet.game.team_two, bet_path(bet) %></td>
-          <td><%= bet.status %></td>
-          <% if bet.status == "start" %>
-              <% if bet.user_id == current_user.id || bet.user_two_id == current_user.id %>
-                  <td><%= link_to 'Cancel Game', bet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% @bets.each do |bet| %>
+        <% if bet.user_id == current_user.id || bet.user_two_id == current_user.id %>
+            <tr>
+              <td><%= link_to bet.game.team_one + ' vs ' + bet.game.team_two, bet_path(bet) %></td>
+              <td><%= bet.status %></td>
+              <% if bet.status == "start" %>
+                  <% if bet.user_id == current_user.id || bet.user_two_id == current_user.id %>
+                      <td><%= link_to 'Cancel Game', bet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                  <% end %>
               <% end %>
-          <% end %>
-        </tr>
+            </tr>
+        <% end %> 
       <% end %>
     </tbody>
   </table>

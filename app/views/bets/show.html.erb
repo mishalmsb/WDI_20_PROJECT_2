@@ -8,7 +8,7 @@
         <% if @bet.user != nil %>
           <p>
             <strong>Better One:</strong>
-            <%= @bet.user.name %>
+            <%= @bet.user.name %> on <%= @bet.game.team_one %>
           </p>
         <% end %>
         
@@ -16,7 +16,7 @@
         <% if @bet.user_two != nil %>
           <p>
             <strong>Better Two:</strong>
-            <%= @bet.user_two.name %>
+            <%= @bet.user_two.name %> on <%= @bet.game.team_two %>
           </p>
         <% end %>
         
@@ -51,7 +51,7 @@
 
     </div>
   </div>
-
+  
   <div style="display: <%= is_admin ? "block" : "none"; %>">
     <%= link_to 'Edit', edit_bet_path(@bet) %>
   </div>

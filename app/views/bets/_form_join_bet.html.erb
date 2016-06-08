@@ -14,10 +14,12 @@
 
   <% if @mybet == "team_one" %>
     <div class="field">
+      user
       <%= f.label :user_id %><br>
       <%= f.number_field :user_id %>
     </div>
     <div class="field">
+      user_two
       <%= f.label :user_two_id %><br>
       <%= f.number_field :user_two_id, :value => current_user.id %>
     </div>
