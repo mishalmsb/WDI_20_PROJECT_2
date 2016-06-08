@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
+
     @users = User.all
 
   end
@@ -13,6 +14,8 @@ class UsersController < ApplicationController
   def show
     #@my_bets = Bet.all
     #@my_bets = Bet.where(user_id: current_user.id and user_two_id: current_user.id)
+    
+    
     @my_bets = Bet.where("user_id = ? OR user_two_id = ?", current_user, current_user)
   end
 
@@ -34,6 +37,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
