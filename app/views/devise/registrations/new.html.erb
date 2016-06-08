@@ -10,7 +10,7 @@
   <label>Top Up Your Coount</label><br>
   <div class="field">
     <%= f.label :money %><br>
-    <%= f.number_field :money %>
+    <%= f.number_field :money , :value => 100 %>
   </div>
   <div class="field">
     <%= f.label :nationality %><br>
@@ -19,10 +19,6 @@
   <div class="field">
     <%= f.label :notes %><br>
     <%= f.text_field :notes %>
-  </div>
-  <div class="field">
-    <%= f.label :picture %><br>
-    <%= f.text_field :picture %>
   </div>
 
   <div class="field">
