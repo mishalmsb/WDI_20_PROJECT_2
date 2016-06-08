@@ -17,17 +17,21 @@
   <% @this_game_bets = Bet.where("game_id = ?", @game.id) %>
 
   <% @this_game_bets.each do |bet| %>
+  
+        <% if bet.user_id %>
+          user_id: <%= bet.user_id %> <br>
+          user.email: <%= bet.user.email %> <br>
+        <% end %>
 
-    user_id: <%= bet.user_id %> <br>
-    user.email: <%= bet.user.email %> <br>
-    
-    user_two_id: <%= bet.user_two_id %> <br>
-    user_two.email: <%= bet.user_two.email %> <br>
-      
-    bet.value: <%= bet.value %> <br> 
-    bet.status: <%= bet.status %> <br>
-    bet.game_id: <%= bet.game_id %> <br>
-    teams: <%= bet.game.team_one %> VS <%= bet.game.team_two %> <br>
+        <% if bet.user_two_id %>
+          user_two_id: <%= bet.user_two_id %> <br>
+          user_two_email: <%= bet.user_two.name %> <br>
+        <% end %>   
+            
+        bet.value: <%= bet.value %> <br> 
+        bet.status: <%= bet.status %> <br>
+        bet.game_id: <%= bet.game_id %> <br>
+        teams: <%= bet.game.team_one %> VS <%= bet.game.team_two %> <br>
       
   <% end %>
 

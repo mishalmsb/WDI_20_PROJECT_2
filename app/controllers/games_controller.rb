@@ -4,13 +4,14 @@ class GamesController < ApplicationController
   # GET /games
   # GET /games.json
   def index
+    @bets = Bet.all
     @games = Game.all
-    @date = Time.now.strftime("%Y/%d/%m")
+    @date = Time.now.strftime("%Y-%m-%d")
     @time = Time.now.strftime("%H%M").to_i
     
-    @upcoming_games = Game.where("date >= ? OR finish_time >= ?", "#{@date}","#{@time}")
-    @todays_games = Game.where("date = ? OR finish_time > ?", "#{@date}","#{@time}")
-    @finished_games = Game.where("date <= ? AND finish_time < ?", "#{@date}","#{@time}")
+    @upcoming_games = Game.where("date >= ? AND finish_time >= ?", "#{@date}","#{@time}")
+    @todays_games = Game.where("date = ? AND finish_time > ?", "#{@date}","#{@time}")
+    # @finished_game = Game.where("date < ? AND finish_time < ?", "#{@date}","#{@time}")
   end
 
   # GET /games/1

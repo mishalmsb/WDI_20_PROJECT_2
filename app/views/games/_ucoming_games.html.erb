@@ -24,10 +24,13 @@
             <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
           <tr>
+            <td>Start new bet</td>
             <td><%= link_to "bet on "+game.team_one, {:controller => "bets", :action => "new", :game => game.id, :team => "team_one"}%></td>
             <td><%= link_to "bet on "+game.team_two, {:controller => "bets", :action => "new", :game => game.id, :team => "team_two" }%></td>
-            <td><%= link_to 'Join Bet', edit_game_path(game) %></td>
+            <td><%= link_to 'Edit Game', edit_game_path(game) %></td>
           </tr>
+          <br>
+          <%= render :partial => 'bets/bets_per_game', :locals => {:game => game.id} %>
         <% end %>
       </tbody>
     </table>

@@ -1,4 +1,5 @@
-<% if @finished_games.size > 0 %>
+
+<% if @finished_game.size > 0 %>
     <table>
       <thead>
         <tr>
@@ -12,22 +13,35 @@
       </thead>
       
       <tbody>
-        <% @finished_games.each do |game| %>
-          <tr>
-            <td><%= game.team_one %></td>
-            <td><%= game.team_two %></td>
-            <td><%= game.winner %></td>
-            <td><%= game.date %></td>
-            <td><%= game.finish_time %></td>
-            
-            <td><%= link_to 'Show', game %></td>
-            <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          </tr>
-          <tr>
-            <td><%= link_to "bet on "+game.team_one, {:controller => "bets", :action => "new", :game => game.id, :team => "team_one"}%></td>
-            <td><%= link_to "bet on "+game.team_two, {:controller => "bets", :action => "new", :game => game.id, :team => "team_two" }%></td>
-            <td><%= link_to 'Join Bet', edit_game_path(game) %></td>
-          </tr>
+
+        <% @finished_game.each do |game| %>
+
+          <% if @time < game.finish_time %>
+              <tr>
+                <td><%= game.team_one %></td>
+                <td><%= game.team_two %></td>
+                <td>
+                  <% if game.winner == "1" %>
+                    <%= game.team_one %>
+                  <% elsif game.winner == "2" %>
+                    <%= game.team_two %>
+                  <% end %>
+                </td>
+                <!-- <td><%= game.winner %></td> -->
+                <% test = game.date >= Date.today %>
+                <td><%= test %></td>
+                <td> <%= game.date %> </td>
+                <td> <%= @date %> </td>
+                <td><%= game.finish_time %></td>
+              </tr>
+              
+              <td><%= link_to 'Show', game %></td>
+              <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+          <% end %>
+
+         
+
         <% end %>
       </tbody>
     </table>
