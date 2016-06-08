@@ -10,7 +10,7 @@
     <tbody>
       <% @bets.where(:user_id => current_user.id).each do |bet| %>
         <tr>
-          <td><%= bet.game.team_one %> VS <%= bet.game.team_two %></td>
+          <td><%= link_to bet.game.team_one + ' vs ' + bet.game.team_two, bet_path(bet) %></td>
           <td><%= bet.status %></td>
           <% if bet.status == "start" %>
               <% if bet.user_id == current_user.id || bet.user_two_id == current_user.id %>

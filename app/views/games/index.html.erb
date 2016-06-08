@@ -1,28 +1,43 @@
 <div class="container">
   <p id="notice"><%= notice %></p>
 
-  <h1>Todays Games</h1>
+  <h2>Bets</h2>
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#home">Todays Games</a></li>
+    <li><a data-toggle="tab" href="#menu1">Upcoming games</a></li>
+    <li><a data-toggle="tab" href="#menu2">All Games</a></li>
+    <li><a data-toggle="tab" href="#menu3">All Betters</a></li>
 
-  <%= render 'todays_games' %>
+  </ul>
 
-  <h1>Upcoming games</h1>
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+      <h3>Todays Games</h3>
 
-  <%= render 'ucoming_games' %>
+        <%= render 'todays_games' %>
 
-  <h1>All Games</h1>
+    </div>
+    <div id="menu1" class="tab-pane fade">
+      <h3>Upcoming games</h3>
+      
+        <%= render 'ucoming_games' %>
+    </div>
 
-  <%= render 'all_games' %>
+    <div id="menu2" class="tab-pane fade">
+      <h3>All Games</h3>
+      
+        <%= render 'all_games' %>
+    </div>
 
-  <h1>All Betters</h1>
-
-  <%= render 'all_users' %>
-
-  <br>
-
-  <br>
+    <div id="menu3" class="tab-pane fade">
+      <h3>All Betters</h3>
+      
+        <%= render 'all_users' %>
+    </div>
+  </div>
 
   <div style="display: <%= is_admin ? "block" : "none"; %>">
     <%= link_to 'New Game', new_game_path %>
   </div>
-</div>
 
+</div>

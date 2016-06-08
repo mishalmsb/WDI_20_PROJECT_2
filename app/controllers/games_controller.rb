@@ -112,7 +112,7 @@ class GamesController < ApplicationController
     def credit_user(user_email, add_money)
         @winner_user = User.find_by_email(user_email)
         user_new_money = @winner_user.money + add_money
-        user.update_attribute(:money, user_new_money)
+        @winner_user.update_attribute(:money, user_new_money)
         
         #puts "*****************************************************************#{user_new_money}"
     end

@@ -31,7 +31,7 @@
             <span class="icon-bar"></span>
           </button>
           <% if current_user %>
-          <a class="navbar-brand" href="#"><%= current_user.name %></a>
+          <lable class="navbar-brand" href="#"><%= current_user.name %></lable>
           <% end %>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -42,7 +42,7 @@
               <%= link_to "Home", root_path %>
             </li>
             <li style="display: <%= is_admin ? "block" : "none"; %>">
-              <%= link_to "new_game", new_game_path %>
+              <%= link_to "This project notes", new_game_path %>
             </li>
             <li>
               <a href="#">About</a>

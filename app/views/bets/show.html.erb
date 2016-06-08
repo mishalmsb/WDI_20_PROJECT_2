@@ -1,33 +1,59 @@
 <div class="container">
-    <p id="notice"><%= notice %></p>
+  <p id="notice"><%= notice %></p>
+  <h2></h2>
+  <div class="panel panel-default">
+    <div class="panel-heading"><%= @bet.game.team_one %> - <%= @bet.game.team_two %></div>
+    <div class="panel-body">
+        <p>
+          <strong>Better One:</strong>
+          <%= @bet.user.name %>
+        </p>
 
-    <p>
-      <strong>User:</strong>
-      <%= @bet.user_id %>
-    </p>
+        <p>
+          <strong>Better Two:</strong>
+          <%= @bet.user_two.name %>
+        </p>
 
-    <p>
-      <strong>User two:</strong>
-      <%= @bet.user_two_id %>
-    </p>
+        <p>
+          <strong>Bet on this game:</strong>
+          <%= @bet.value %>
+        </p>
 
-    <p>
-      <strong>Value:</strong>
-      <%= @bet.value %>
-    </p>
+        <p>
+          <strong>Bet Status:</strong>
+          <%= @bet.status %>
+        </p>
 
-    <p>
-      <strong>Status:</strong>
-      <%= @bet.status %>
-    </p>
+        <p>
+          <strong>Bet Winner:</strong>
 
-    <p>
-      <strong>Game:</strong>
-      <%= @bet.game_id %>
-    </p>
+            <% if @bet.game.winner == "1" %>
+              <%= @bet.user.name %> - <%= @bet.game.team_one %>
+            <% elsif @bet.game.winner == "2" %>
+              <%= @bet.user_two.name %> - <%= @bet.game.team_two %>
+            <% else %>
+               Unfinished 
+            <% end %>
 
-    <%= link_to 'Edit', edit_bet_path(@bet) %> |
-    <%= link_to 'Back', bets_path %> 
+        </p>
+
+        <!-- <p>
+          <strong>Game:</strong>
+          <%= @bet.game_id %>
+        </p> -->
+
+    </div>
+  </div>
+
+  <div style="display: <%= is_admin ? "block" : "none"; %>">
+    <%= link_to 'Edit', edit_bet_path(@bet) %>
+  </div>
+  <%= link_to 'Back', bets_path %>
+  
+</div>
+
+<div class="container">
+
 </div>
 
 
