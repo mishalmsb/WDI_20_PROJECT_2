@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'statics/about'
+  get 'statics/contact'
   get 'statics/homepage'
 
   devise_for :users
