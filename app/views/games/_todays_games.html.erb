@@ -22,13 +22,13 @@
                 <td> <%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %>
                 </td>
                 <td>
-                  <button data-toggle="collapse" data-target="#demo">Bets on game</button>
+                  <button data-toggle="collapse" data-target="#demo" class="dropdown"> Bets on this game </button>
                 </td>
                 </tr>
                 
         </tbody>
       </table>
-      <div id="demo" class="collapse">
+      <div id="demo" class="collapse ">
           <%= render :partial => 'bets/bets_per_game', :locals => {:game => game.id} %>
       </div>
     <% end %>
