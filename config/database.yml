@@ -80,6 +80,7 @@ test:
 #
 production:
   <<: *default
+  url: <%= ENV['DATABASE_URL'] %> 
   database: WDI_20_PROJECT_2_production
   username: WDI_20_PROJECT_2
   password: <%= ENV['WDI_20_PROJECT_2_DATABASE_PASSWORD'] %>
