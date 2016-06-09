@@ -1,0 +1,138 @@
+@import url(bootstrap/dist/css/bootstrap.min.css);
+/* line 3, /Users/mishal/development/WDI_20_PROJECT_2/app/assets/stylesheets/application.scss */
+body {
+  background: url("http://www.lionelmessiwallpapers.org/wp-content/uploads/wallpapers/messi_brown_football_goal_background_wallpaper_-_1440x900.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+}
+
+/* line 8, /Users/mishal/development/WDI_20_PROJECT_2/app/assets/stylesheets/application.scss */
+html,
+body {
+  height: 100%;
+  margin: 0 auto;
+}
+
+/* line 14, /Users/mishal/development/WDI_20_PROJECT_2/app/assets/stylesheets/application.scss */
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  background-color: black;
+}
+
+/* line 18, /Users/mishal/development/WDI_20_PROJECT_2/app/assets/stylesheets/application.scss */
+a {
+  color: white;
+}
+
+/* line 22, /Users/mishal/development/WDI_20_PROJECT_2/app/assets/stylesheets/application.scss */
+#profileImg {
+  margin-left: 15px;
+}
+
+/* line 27, /Users/mishal/development/WDI_20_PROJECT_2/app/assets/stylesheets/application.scss */
+cite {
+  color: white;
+}
+
+/* line 30, /Users/mishal/development/WDI_20_PROJECT_2/app/assets/stylesheets/application.scss */
+.panel-body {
+  background: rgba(63, 57, 59, 0.6);
+}
+
+/* line 33, /Users/mishal/development/WDI_20_PROJECT_2/app/assets/stylesheets/application.scss */
+.body {
+  background-color: rgba(105, 57, 59, 0.4);
+}
+
+/* line 38, /Users/mishal/development/WDI_20_PROJECT_2/app/assets/stylesheets/application.scss */
+input, textarea {
+  background-color: rgba(105, 57, 59, 0.4);
+}
+
+/* line 41, /Users/mishal/development/WDI_20_PROJECT_2/app/assets/stylesheets/application.scss */
+.body {
+  margin-top: 50px;
+}
+
+/* line 45, /Users/mishal/development/WDI_20_PROJECT_2/app/assets/stylesheets/application.scss */
+.carousel,
+.item,
+.active {
+  height: 90%;
+}
+
+/* line 51, /Users/mishal/development/WDI_20_PROJECT_2/app/assets/stylesheets/application.scss */
+.carousel-inner {
+  height: 90%;
+}
+
+/* Background images are set within the HTML using inline CSS, not here */
+/* line 57, /Users/mishal/development/WDI_20_PROJECT_2/app/assets/stylesheets/application.scss */
+.fill {
+  width: 100%;
+  height: 90vh;
+  background-position: center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+
+/* line 67, /Users/mishal/development/WDI_20_PROJECT_2/app/assets/stylesheets/application.scss */
+.navbar {
+  margin-bottom: 0;
+  border-radius: 0;
+}
+
+/* line 72, /Users/mishal/development/WDI_20_PROJECT_2/app/assets/stylesheets/application.scss */
+.custab {
+  border: 1px solid #ccc;
+  padding: 5px;
+  margin: 5% 0;
+  box-shadow: 3px 3px 2px #ccc;
+  transition: 0.5s;
+}
+
+/* line 79, /Users/mishal/development/WDI_20_PROJECT_2/app/assets/stylesheets/application.scss */
+.custab:hover {
+  box-shadow: 3px 3px 0px transparent;
+  transition: 0.5s;
+}
+
+/* line 84, /Users/mishal/development/WDI_20_PROJECT_2/app/assets/stylesheets/application.scss */
+html, body, .container-table {
+  height: 100%;
+}
+
+/* line 87, /Users/mishal/development/WDI_20_PROJECT_2/app/assets/stylesheets/application.scss */
+.container-table {
+  display: table;
+}
+
+/* line 90, /Users/mishal/development/WDI_20_PROJECT_2/app/assets/stylesheets/application.scss */
+.vertical-center-row {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+/* line 94, /Users/mishal/development/WDI_20_PROJECT_2/app/assets/stylesheets/application.scss */
+footer {
+  position: fixed;
+  height: 100px;
+  bottom: 0;
+  width: 100%;
+}
+
+/* line 101, /Users/mishal/development/WDI_20_PROJECT_2/app/assets/stylesheets/application.scss */
+button {
+  background-color: black;
+  /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
