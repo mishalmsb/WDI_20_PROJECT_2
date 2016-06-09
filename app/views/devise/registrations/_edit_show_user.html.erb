@@ -101,7 +101,7 @@
   // document.addEventListener("dblclick", function(event){
   // });
 
-  function hideLabels(allLabels,elementId) {
+  (function hideLabels(allLabels,elementId) {
       var elements = document.getElementsByClassName(allLabels)
 
       for (var i = 0; i < elements.length; i++){
@@ -126,7 +126,7 @@
       
       }
       document.getElementById("actions").style.display = "none";
-  }
+  })
   // document.addEventListener("click", function(){
   //     document.getElementById("demo").innerHTML = "Hello World";
   // });

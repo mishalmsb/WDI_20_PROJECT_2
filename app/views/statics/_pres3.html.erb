@@ -1,0 +1,54 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-4 text-left" >
+            <h4> USER </h4>
+            <ul class="list-unstyled">
+                <li><STRONG>has_many :bets</STRONG></li>
+                <li><STRONG>has_many :bets, :through => :bets</STRONG></li>
+            </ul>
+            <h5> DATABASE </h5>
+            <ul class="list-unstyled">
+                <li><STRONG>t.string   "name"</STRONG></li>
+                <li><STRONG>t.integer  "money"</STRONG></li>
+                <li><STRONG>t.string   "graffiti_image"</STRONG></li>
+                <li><STRONG>t.boolean  "admin",</STRONG></li>
+            </ul>
+        </div>
+
+        <div class="col-xs-4 text-left">
+            <h5> BET </h5>
+            <ul class="list-unstyled">
+                <li><STRONG>belongs_to :user</STRONG></li>
+                <li><STRONG>belongs_to :user_two, :class_name => 'User'</STRONG></li>
+                <li><STRONG>belongs_to :game</STRONG></li>
+            </ul>
+            <h4> DATABASE </h4>
+            <ul class="list-unstyled">
+                <li><STRONG>t.integer  "user_id"</STRONG></li>
+                <li><STRONG>t.integer  "user_two_id"</STRONG></li>
+                <li><STRONG>t.integer  "value"</STRONG></li>
+                <li><STRONG>t.string   "status"</STRONG></li>
+                <li><STRONG>t.integer  "game_id"</STRONG></li>
+            </ul>
+
+        </div>  
+                
+
+        <div class="col-xs-4 text-left">
+            <h5> GAME </h5>
+            <ul class="list-unstyled">
+                <li><STRONG>has_many :bets</STRONG></li>
+            </ul>
+            <h4> DATABASE </h4>
+            <ul class="list-unstyled">
+                <li><STRONG>t.string   "team_one"</STRONG></li>
+                <li><STRONG>t.string   "team_two"</STRONG></li>
+                <li><STRONG>t.string   "winner"</STRONG></li>
+                <li><STRONG>t.date     "date"</STRONG></li>
+                <li><STRONG>t.time     "time"</STRONG></li>
+            </ul>
+
+        </div>
+    </div>
+</div>

@@ -43,26 +43,26 @@
               <%= link_to "Home", root_path %>
             </li>
             <li style="display: <%= is_admin ? "block" : "none"; %>">
-              <%= link_to "This project notes", statics_myproject_path %>
+              <%= link_to "PROJECT INFO", statics_myproject_path %>
             </li>
             <li>
-              <%= link_to "About", statics_about_path %>
+              <%= link_to "ABOUT", statics_about_path %>
             </li>
             <li>
-              <%= link_to "Contact", statics_contact_path %>
+              <%= link_to "CONTACT", statics_contact_path %>
             </li>
 
             <% if current_user %>
-              <li><%= link_to "Profile", edit_user_registration_path %></li>
-              <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+              <li><%= link_to "PROFILE", edit_user_registration_path %></li>
+              <li><%= link_to "LOG OUT", destroy_user_session_path, method: :delete %></li>
               <li style="display: <%= is_admin ? "block" : "none"; %>">
-                <%= link_to "new_game", new_game_path %> 
+                <%= link_to "NEW GAME", new_game_path %> 
               </li>
-              <li><%= link_to "games", games_path %></li>
-              <li><%= link_to "bets", bets_path %></li>
+              <li><%= link_to "GAMES", games_path %></li>
+              <li><%= link_to "BETS", bets_path %></li>
             <% else %>
-              <li><%= link_to "Sign In", new_user_session_path %></li>
-              <li><%= link_to "Register", new_user_registration_path %></li>
+              <li><%= link_to "SIGN IN", new_user_session_path %></li>
+              <li><%= link_to "REGISTER", new_user_registration_path %></li>
             <% end %>
             </ul>
           </div>
@@ -75,8 +75,8 @@
 
         <div class="row">
           <div class="col-lg-12">
-        <!-- <h1>Open source betting game for friends</h1>
-          <p> Hi, Welcome to my betting page, Play with your friends and prove who is the best in predicting the winner</p> -->
+        <!-- <h1></h1>
+          <p> </p> -->
           <%= yield %>
         </div>
         </div>

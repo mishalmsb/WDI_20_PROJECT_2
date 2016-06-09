@@ -1,0 +1,54 @@
+<div class="container body">
+
+    <div class="row">
+        <div class="col-lg-12 text-right">
+            <h3>_____________________HOW IT WORKS</h3>
+
+            <ul class="list-unstyled">
+                <li><STRONG>
+                  create_table "bets", force: :cascade do |t|
+                    t.integer  "user_id"
+                    t.integer  "user_two_id"
+                    t.integer  "value"
+                    t.string   "status"
+                    t.integer  "game_id"
+                  end
+                </STRONG></li>
+                <li><STRONG>
+                  create_table "games", force: :cascade do |t|
+                    t.string   "team_one"
+                    t.string   "team_two"
+                    t.string   "winner"
+                    t.date     "date"
+                    t.time     "time"
+                    t.integer  "finish_time"
+                  end
+                </STRONG></li>
+                <li><STRONG>
+                  create_table "users", force: :cascade do |t|
+                    t.string   "name"
+                    t.integer  "money"
+                    t.string   "nationality"
+                    t.string   "notes"
+                    t.string   "email",                  default: "",    null: false
+                    t.string   "encrypted_password",     default: "",    null: false
+                    t.string   "graffiti_image"
+                    t.boolean  "admin",                  default: false
+                  end
+                </STRONG></li>
+                <li><STRONG>THE WEBSIDE ADMIN WILL CREATE GAMES</STRONG></li>
+                <li><STRONG>YOU CAN START A BET BY SELECTING A TEAM AT GAMES</STRONG></li>
+                <li><STRONG>OR YOU CAN JOIN A BET SOMEONE ELSE CREATED</STRONG></li>
+                <li><STRONG>WHEN THE GAME IS FINISHED THE ADMIN WILL UPDATE IT</STRONG></li>
+                <li><STRONG>AND IF YOU WON THE BET YOU WILL BE CREDITED</li>
+            </ul>
+        </div>
+    </div>
+    <!-- /.row -->
+
+</div>
+
+
+
+
+

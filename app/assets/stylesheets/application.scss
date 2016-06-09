@@ -1,7 +1,7 @@
 @import "bootstrap/dist/css/bootstrap.min.css";
 
 body {
-    background: url("/assets/messi.jpg");
+    background: url("/assets/messi.jpg") no-repeat;
     background-size: cover;
     color: white;
 }
@@ -14,6 +14,10 @@ body {
 }
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
   background-color: black;
+}
+
+.presentImg {
+    height: 80vh;
 }
 
 a {
@@ -95,12 +99,12 @@ html, body, .container-table {
 footer {
     position: fixed;
     height: 100px;
-    bottom: 0;
+    bottom: -50px;
     width: 100%;
 }
 
 button {
-    background-color:black; /* Green */
+    background-color:black;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -119,7 +123,17 @@ button {
     background-color: rgba(105, 57, 59, 0.4);
 }
 
+.panel-transparent {
+    background: none;
+}
 
+.panel-transparent .panel-heading{
+    background: rgba(122, 130, 136, 0.2)!important;
+}
+
+.panel-transparent .panel-body{
+    background: rgba(46, 51, 56, 0.2)!important;
+}
 
 
 
