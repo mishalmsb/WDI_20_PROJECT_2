@@ -38,7 +38,7 @@ cite {
 input, textarea {
   background-color : rgba(105, 57, 59, 0.4);
 }
-#profile{
+.body{
     margin-top: 50px;
 }
 
@@ -91,9 +91,25 @@ html, body, .container-table {
     display: table-cell;
     vertical-align: middle;
 }
+footer {
+    position: fixed;
+    height: 100px;
+    bottom: 0;
+    width: 100%;
+}
 
-
-
+button {
+    background-color:black; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
 
 
 

@@ -64,7 +64,8 @@
                 </div>
 
                 <div class="actions" id="actions" style="display: none">
-                  <%= f.submit "Update" %>
+                  
+                  <input type="submit" name="Update" value="Update">
                   
                 </div>
 
@@ -111,8 +112,10 @@
       
   };
     
+  
 
-  function reset(allDivs) { 
+  function reset() { 
+      
       var elements = document.getElementsByClassName(allDivs)
 
       for (var i = 0; i < elements.length; i++){

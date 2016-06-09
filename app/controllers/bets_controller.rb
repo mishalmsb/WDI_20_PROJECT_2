@@ -43,9 +43,6 @@ class BetsController < ApplicationController
     if current_user.money < (bet_params[:value].to_i/2)
         redirect_to @bet
     else
-        format.html { render :new }
-        format.json { render json: @bet.errors, status: :unprocessable_entity }
-
         respond_to do |format|
           if @bet.save
             format.html { redirect_to @bet, notice: 'Bet was successfully created.' }

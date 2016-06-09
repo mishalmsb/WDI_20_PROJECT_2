@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'statics/homepage'
 
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => :registrations }
   resources :bets
   resources :games
   resources :users

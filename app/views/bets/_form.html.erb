@@ -14,16 +14,27 @@
 
   <% if @mybet == "team_one" %>
     <% betted_here = current_user.id %>
+    <h3>
+        <%= current_user.name %> how much would you like to bet on
+        <%= @game.team_one %> ?
+    </h3>
+    
   <% elsif @mybet == "team_two" %>
-    <% actually_betted_here = current_user.id %> 
+    <% actually_betted_here = current_user.id %>
+    <h3>
+        <%= current_user.name %> how much would you like to bet on
+        <%= @bet.game.team_two %> ?
+    </h3>
   <% end %>
 
-  <div class="field">
+  
+
+  <div class="field" style="display: <%= is_admin ? "block" : "none"; %> ">
     user
     <%= f.label :user_id %><br>
     <%= f.number_field :user_id, :value => betted_here %>
   </div>
-  <div class="field">
+  <div class="field" style="display: <%= is_admin ? "block" : "none"; %> ">
     user:two
     <%= f.label :user_two_id %><br>
     <%= f.number_field :user_two_id, :value => actually_betted_here %>
@@ -32,11 +43,11 @@
     <%= f.label :value %><br>
     <%= f.number_field :value, :required => true %>
   </div>
-  <div class="field">
+  <div class="field" style="display: <%= is_admin ? "block" : "none"; %> ">
     <%= f.label :status %><br>
     <%= f.text_field :status, :value => "start" %>
   </div>
-  <div class="field">
+  <div class="field" style="display: <%= is_admin ? "block" : "none"; %> ">
     <%= f.label :game_id %><br>
     <%= f.number_field :game_id, :value => @game.id %>
   </div>

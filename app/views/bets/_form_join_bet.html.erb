@@ -2,7 +2,6 @@
   <% if @bet.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@bet.errors.count, "error") %> prohibited this bet from being saved:</h2>
-
       <ul>
       <% @bet.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -10,15 +9,33 @@
       </ul>
     </div>
   <% end %>
-  <%= @better %>
+  
+  <% if @mybet == "team_two" %>
+    <% betted_here = current_user.id %>
+    <h3>
+        <%= current_user.name %> would you like to bet 
+        <%= @bet.value %>
+        on
+        <%= @bet.game.team_one %> ?
+    </h3>
+  <% end %>
+  <% if @mybet == "team_one" %>
+    <% actually_betted_here = current_user.id %>
+    <h3>
+        <%= current_user.name %> would you like to bet
+        <%= @bet.value %>
+        on
+        <%= @bet.game.team_two %> ?
+    </h3>
+  <% end %>
 
   <% if @mybet == "team_one" %>
-    <div class="field">
+    <div class="field"  style="display: <%= is_admin ? "block" : "none"; %> ">
       user
       <%= f.label :user_id %><br>
       <%= f.number_field :user_id %>
     </div>
-    <div class="field">
+    <div class="field"  style="display: <%= is_admin ? "block" : "none"; %> ">
       user_two
       <%= f.label :user_two_id %><br>
       <%= f.number_field :user_two_id, :value => current_user.id %>
@@ -29,27 +46,27 @@
       <%= f.label :user_id %><br>
       <%= f.number_field :user_id, :value => current_user.id %>
     </div>
-    <div class="field">
+    <div class="field" style="display: <%= is_admin ? "block" : "none"; %> ">
       <%= f.label :user_two_id %><br>
       <%= f.number_field :user_two_id %>
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field"  style="display: <%= is_admin ? "block" : "none"; %> ">
     <%= f.label :value %><br>
     <%= f.number_field :value, :value => @bet.value + @bet.value %>
   </div>
 
-  <div class="field">
+  <div class="field"  style="display: <%= is_admin ? "block" : "none"; %> ">
     <label> Value </label><br>
     <input type="text" value="<%= @bet.value %>">
   </div>
 
-  <div class="field">
+  <div class="field"  style="display: <%= is_admin ? "block" : "none"; %> ">
     <%= f.label :status %><br>
     <%= f.text_field :status, :value => "close" %>
   </div>
-  <div class="field">
+  <div class="field"  style="display: <%= is_admin ? "block" : "none"; %> ">
     <%= f.label :game_id %><br>
     <%= f.number_field :game_id %>
   </div>

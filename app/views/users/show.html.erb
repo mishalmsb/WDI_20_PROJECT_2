@@ -11,7 +11,7 @@
                 <p><h3> <%= @user.name.capitalize %> </h3></p> <small><cite title="Source Title"><%= @user.nationality.capitalize %> <i class="glyphicon glyphicon-map-marker"></i></cite></small>
             </blockquote>
                 <p> 
-                  <i class="glyphicon glyphicon-envelope"></i> <%= current_user.email %>
+                  <i class="glyphicon glyphicon-envelope"></i> <%= @user.email %>
                 </p>
                     
                 <p> <%= @user.notes %> </p>
