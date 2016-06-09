@@ -40,35 +40,45 @@ class BetsController < ApplicationController
     @bet = Bet.new(bet_params)
     # puts "IULIUYBIPHIHILUHPIUHPIHPIHPI #{bet_amount}"
     # puts "HUHDOUHUYGUYGBUGBKVYIUUGU#{current_user.money}"
-    user_new_money = current_user.money - bet_params[:value].to_i
-    current_user.update_attribute(:money, user_new_money)
-
-    respond_to do |format|
-      if @bet.save
-        format.html { redirect_to @bet, notice: 'Bet was successfully created.' }
-        format.json { render :show, status: :created, location: @bet }
-      else
+    if current_user.money < (bet_params[:value].to_i/2)
+        redirect_to @bet
+    else
         format.html { render :new }
         format.json { render json: @bet.errors, status: :unprocessable_entity }
-      end
+
+        respond_to do |format|
+          if @bet.save
+            format.html { redirect_to @bet, notice: 'Bet was successfully created.' }
+            format.json { render :show, status: :created, location: @bet }
+          else
+            format.html { render :new }
+            format.json { render json: @bet.errors, status: :unprocessable_entity }
+          end
+        end
     end
+    
   end
 
   # PATCH/PUT /bets/1
   # PATCH/PUT /bets/1.json
   def update
-    user_new_money = current_user.money - (bet_params[:value].to_i/2)
-    current_user.update_attribute(:money, user_new_money)
+    if current_user.money < (bet_params[:value].to_i/2)
+        redirect_to @bet
+    else
 
-    respond_to do |format|
-      if @bet.update(bet_params)
-        # User.find(current_user.id).user.update_attributes(:money => 90)
-        format.html { redirect_to @bet, notice: 'Bet was successfully updated.' }
-        format.json { render :show, status: :ok, location: @bet }
-      else
-        format.html { render :edit }
-        format.json { render json: @bet.errors, status: :unprocessable_entity }
-      end
+        user_new_money = current_user.money - (bet_params[:value].to_i/2)
+        current_user.update_attribute(:money, user_new_money)
+
+        respond_to do |format|
+          if @bet.update(bet_params)
+            # User.find(current_user.id).user.update_attributes(:money => 90)
+            format.html { redirect_to @bet, notice: 'Bet was successfully updated.' }
+            format.json { render :show, status: :ok, location: @bet }
+          else
+            format.html { render :edit }
+            format.json { render json: @bet.errors, status: :unprocessable_entity }
+          end
+    end
     end
   end
 

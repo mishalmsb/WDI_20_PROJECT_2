@@ -14,26 +14,27 @@
             <tr>
               
               <td>
-                  <%= link_to game.team_one, {:controller => "bets", :action => "new", :game => game.id, :team => "team_one"}%>
-                  vs
-                  <%= link_to game.team_two, {:controller => "bets", :action => "new", :game => game.id, :team => "team_two" }%>
-              </td>
-              <td><%= game.date %>  <%= game.finish_time %></td>
-     
-            </tr>
-              <tr>
-                <%= render :partial => 'bets/bets_per_game', :locals => {:game => game.id} %>
-              </tr>
+                <%= link_to game.team_one, {:controller => "bets", :action => "new", :game => game.id, :team => "team_one"}%>
+                vs
+                <%= link_to game.team_two, {:controller => "bets", :action => "new", :game => game.id, :team => "team_two" }%>
+                </td>
+                <td><%= game.date %>  <%= game.finish_time %></td>
+                <td> <%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %>
+                </td>
+                <td>
+                  <button data-toggle="collapse" data-target="#demo">Bets on game</button>
+                </td>
+                </tr>
+                
         </tbody>
       </table>
+      <div id="demo" class="collapse">
+          <%= render :partial => 'bets/bets_per_game', :locals => {:game => game.id} %>
+      </div>
     <% end %>
   </div>
 <% else %>
   <%= render 'no_games' %>
-
-  <td> <%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  
-  
-
 <% end %>
+
 

@@ -1,44 +1,31 @@
-<table>
-  <thead>
-    <tr>
-      <th>User</th> 
-      <th>User two</th>
-      <th>Bet</th>
-      <th>Teams Playing</th>
-      <th> Game Status</th>
-      <th colspan="1"></th>
-    </tr>
-  </thead>
+<% @bets = Bet.where("game_id = ?", game) %>
 
-  <% @bets = Bet.where("game_id = ?", game) %>
-  <label>Bets on this game</label>
+<% if @bets.size > 0 %>
+  <div class="container" style="background: lightblue;">
 
-  <tbody>
-    <% @bets.each do |bet| %>
-      <tr>
-        <% if bet.user_id != nil %>
-          <td> 
-            <%= link_to bet.user.name, bet.user %>
-             
-          </td>
-        <% end %>
-        <% if bet.user_two_id != nil %>
-          <td> <%= link_to bet.user_two.name, bet.user_two %>  </td>
-        <% end %>
-        <td><%= bet.value %></td>
-        
-        <td><%= bet.game.team_one %> VS <%= bet.game.team_two %></td>
-        <td><%= bet.status %></td>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Betters</th>
+          <th>Winner</th>
+          <th>Game Status</th>
+          <th>Bet</th>
+        </tr>
+      </thead>
 
-        <% if bet.status == "start" %>
-          <% if bet.user_id == current_user.id || bet.user_two_id == current_user.id %>
-            <td><%= link_to 'Destroy', bet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          <% else %>
-            <td><%= link_to 'Bet', edit_bet_path(bet) %></td>
-          <% end %>
+      <tbody>
+        <% @bets.each do |bet| %>
+          <tr>
+            <td><%= bet.user.name %> <%= bet.user_two.name %> </td>
+            <td><%= bet.value %></td>
+            <td><%= bet.status %></td>
+
+          </tr>
         <% end %>
-        
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      </tbody>
+    </table>
+  </div>
+<% else %>
+    <%= render 'games/no_games' %>
+<% end %>
+    

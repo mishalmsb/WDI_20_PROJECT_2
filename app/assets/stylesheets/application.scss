@@ -1,5 +1,10 @@
 @import "bootstrap/dist/css/bootstrap.min.css";
 
+body {
+    background: url("http://www.dusd.net/warren/files/2015/10/Background-blue.png");
+    background-size: 100%;
+    color: black;
+}
 html,
 body {
     height: 100%;
@@ -10,6 +15,11 @@ body {
 .space {
     // background-color: white;
 
+}
+
+.body {
+    
+    background: url("http://science-all.com/images/wallpapers/white-background-image/white-background-image-16.jpg");
 }
 
 #profile{
@@ -53,9 +63,18 @@ body {
 .custab:hover{
     box-shadow: 3px 3px 0px transparent;
     transition: 0.5s;
-    }
+}
 
-
+html, body, .container-table {
+    height: 100%;
+}
+.container-table {
+    display: table;
+}
+.vertical-center-row {
+    display: table-cell;
+    vertical-align: middle;
+}
 
 
 

@@ -18,10 +18,15 @@
 
 $(function() {
   console.log("hello")
-
   $('.carousel').carousel({
     interval: 5000 //changes the speed
-  })
+})
 
   
 })
+
+$(function() {
+   $('#notice').delay(500).fadeIn('slow', function() {
+      $(this).delay(2500).fadeOut();
+   });
+});
