@@ -27,7 +27,9 @@
       <%= @game.time %>
     </p>
 
-    <%= link_to 'Edit', edit_game_path(@game) %> |
+    <div style="display: <%= is_admin ? "block" : "none"; %>">
+      <%= link_to 'Edit', edit_game_path(@game) %>
+    </div>
     <%= link_to 'Back', games_path %>
 
 </div>  
