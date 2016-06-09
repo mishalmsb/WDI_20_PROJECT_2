@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'rails_12factor', group: :production
 gem 'countdown'
 gem 'carrierwave', '0.10.0'
 
