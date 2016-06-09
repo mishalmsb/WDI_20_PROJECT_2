@@ -1,4 +1,4 @@
-<div class="container body" id="profile">
+<div class="container body text-center" id="profile">
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= devise_error_messages! %>
@@ -8,11 +8,8 @@
     <% end %>
 
     <div class="row">
-        <div class="col-sm-6 col-md-6" id="profileImg">
-            <img src="<%= @user.graffiti_image.url %>"
-            alt="" class="img-rounded img-responsive" />
-        </div>
-        <div class="col-sm-4 col-md-4">
+ 
+        <div class="col-sm-4 col-md-6">
             <blockquote>
                 <p><h3> <%= current_user.name.capitalize %> </h3></p> <small><cite title="Source Title"><%= current_user.nationality.capitalize %> <i class="glyphicon glyphicon-map-marker"></i></cite></small>
             </blockquote>
@@ -85,7 +82,13 @@
                     Double click if you wont to change any detail
                 </p>
         </div>
-        
+        <div class="col-sm-4 col-md-4">
+        </div>
+        <div class="col-sm-4 col-md-4" id="profileImg">
+            <img src="<%= @user.graffiti_image.url %>"
+            alt="" class="img-rounded img-responsive" />
+        </div>
+
       </div>
     <% end %>  
 </div>

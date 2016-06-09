@@ -1,12 +1,9 @@
-<div class="container body" id="profile">
+<div class="container body  text-center" id="profile">
   <p id="notice"><%= notice %></p>
 
     <div class="row">
-        <div class="col-sm-4 col-md-4">
-            <img src="<%= @user.graffiti_image.url %>"
-            alt="" class="img-rounded img-responsive" />
-        </div>
-        <div class="col-sm-4 col-md-4">
+
+        <div class="col-sm-4 col-md-6 ">
             <blockquote>
                 <p><h3> <%= @user.name.capitalize %> </h3></p> <small><cite title="Source Title"><%= @user.nationality.capitalize %> <i class="glyphicon glyphicon-map-marker"></i></cite></small>
             </blockquote>
@@ -17,15 +14,23 @@
                 <p> <%= @user.notes %> </p>
                 <p> <%= @user.money %> tokens left </p>
                 
-                <p> <%= link_to 'Back', users_path %> </p>
+                
         </div>
-        
+        <div class="col-sm-4 col-md-4">
+        </div>
+        <div class="col-sm-4 col-md-4">
+            <img src="<%= @user.graffiti_image.url %>"
+            alt="" class="img-rounded img-responsive" />
+        </div>
       </div>
       <div style="display: <%= is_admin ? "block" : "none"; %> ">
         <p> <%= link_to 'Edit', edit_user_path(@user) %> </p>
       </div>
+      <div>
+        <p> <%= link_to 'Back', users_path %> </p>
+      </div>
       
 </div>
 
- 
+
 

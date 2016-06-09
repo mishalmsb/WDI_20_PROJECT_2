@@ -1,12 +1,13 @@
-// @import "bootstrap/dist/css/bootstrap.min.css";
+@import "bootstrap/dist/css/bootstrap.min.css";
 
 body {
-    background: url("http://www.lionelmessiwallpapers.org/wp-content/uploads/wallpapers/messi_brown_football_goal_background_wallpaper_-_1440x900.jpg") no-repeat center center fixed;
+    background: url("/assets/messi.jpg");
     background-size: cover;
     color: white;
 }
 html,
 body {
+
     height: 100%;
     margin: 0 auto;
     // background-color: black;
@@ -117,7 +118,6 @@ button {
     padding-top: 0px;
     background-color: rgba(105, 57, 59, 0.4);
 }
-
 
 
 
