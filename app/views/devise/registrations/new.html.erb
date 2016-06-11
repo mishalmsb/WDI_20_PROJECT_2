@@ -11,8 +11,8 @@
                 <%= f.label :name %><br>
                 <%= f.text_field :name, autofocus: true%>
               </div><br>
-              <label>Top Up Your Coount</label><br>
-              <div class="field" style="display: <%= is_admin ? "block" : "none"; %>>
+              <label style="display: <%= is_admin ? "block" : "none"; %>">Top Up Your Coount</label><br>
+              <div class="field" style="display: <%= is_admin ? "block" : "none"; %>">
                 <%= f.label :money %><br>
                 <%= f.number_field :money , :value => 100 %>
               </div>
@@ -25,16 +25,18 @@
                 <%= f.text_field :notes %>
               </div>
 
-              <div class="field">
-                <%= f.label :graffiti_image %><br>
-                <%= f.file_field :graffiti_image %>
-              </div>
+             
 
               <div class="field">
                 <%= f.label :email %><br />
                 <%= f.email_field :email %>
               </div>
 
+              <div class="field">
+                <%= f.label :graffiti_image %><br>
+                <%= f.file_field :graffiti_image %>
+              </div>
+              
               <div class="field">
                 <%= f.label :password %>
                 <% if @minimum_password_length %>

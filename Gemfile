@@ -3,8 +3,10 @@ source 'https://rubygems.org'
 gem 'rails_12factor', group: :production
 gem 'countdown'
 gem 'carrierwave', '0.10.0'
-
 gem 'devise' 
+gem 'fog', '1.36.0'
+
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use postgresql as the database for Active Record

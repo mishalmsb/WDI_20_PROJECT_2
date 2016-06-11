@@ -66,6 +66,8 @@
                   
                 </div>
 
+                <label class="allLabels" ondblclick="hideLabels('allLabels','divImage')"> Change image </label>
+
                 <div class="field divs"  id="divImage" style="display: none">
                   <%= f.label :graffiti_image %><br>
                   <%= f.file_field :graffiti_image %>
@@ -101,7 +103,7 @@
   // document.addEventListener("dblclick", function(event){
   // });
 
-  (function hideLabels(allLabels,elementId) {
+  function hideLabels(allLabels,elementId) {
       var elements = document.getElementsByClassName(allLabels)
 
       for (var i = 0; i < elements.length; i++){
@@ -126,7 +128,7 @@
       
       }
       document.getElementById("actions").style.display = "none";
-  })
+  }
   // document.addEventListener("click", function(){
   //     document.getElementById("demo").innerHTML = "Hello World";
   // });
