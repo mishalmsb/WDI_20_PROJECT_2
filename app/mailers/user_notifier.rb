@@ -1,5 +1,5 @@
 class UserNotifier < ApplicationMailer
-  default :from => 'mishalmsb@gmail.com'
+  default :from => 'mishalgastudent@gmail.com'
 
   def inform_bet_winner_email(user)
       @user = user
